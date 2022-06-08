@@ -1,0 +1,50 @@
+$p-200: #e28b22;
+$p-150: #e1b17a;
+$p-100: #FFDAAF;
+$p-50: #ffebd3;
+$s-50: #ef8796;
+$s-100: #e7435c;
+$s-200: #ac19b4;
+
+$mxw: 1100px; 
+$navheight: 50px;
+$br: 10px;
+
+$text-styles: 'Monoton', 'Pacifico', 'Redwing';
+@each $style in $text-styles {
+    .text#{$style} {
+        font-family: $style, cursive
+    };
+}
+
+@mixin center {
+    display: grid;
+    place-items: center;
+}
+
+@mixin phoneScreen {
+    @media only screen and (max-width: 1000px) {
+        @content;
+    }
+}
+
+@mixin clickable {
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+@mixin ali {
+    display: flex;
+    align-items: center;
+}
+
+@mixin space-x($space:.5rem) {
+    & > * + * {
+        margin-left: $space;
+    }
+}
+
+@mixin shadow {
+    box-shadow: 1px 1px 5px 2px rgb(197, 195, 195);
+}

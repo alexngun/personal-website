@@ -1,0 +1,387 @@
+@import "_mixins.scss";
+
+.mainContainer {
+    width: 100%;
+    position: relative;
+    top: $navheight;
+    @include center;
+    padding-bottom: 20rem;
+
+    & > * + * {
+        margin-top: 8rem;
+    }
+
+    .mainWrapper {
+        width: 90%;
+        max-width: $mxw;
+        display: flex;
+        height: 800px;
+    }
+
+    .mainWrapperSm {
+        @extend .mainWrapper;
+        height: 700px !important;
+    }
+
+    .mainWrapperXs {
+        @extend .mainWrapper;
+        height: 400px !important;
+    }
+}
+
+.strip {
+    height: 500px;
+    width: 100%;
+    background-color: $p-50;
+    @include center;
+}
+
+.greetings {
+    flex: 1;
+    color: $p-200;
+    position: relative;
+    top: 20%;
+    height: 80%;
+
+    h1 {
+        font-size: 100px;
+        color: $s-100;
+        letter-spacing: .5px;
+    }
+
+    h2 {
+        letter-spacing: 1px;
+        line-height: 38px;
+        font-size: xx-large;
+
+        span {
+            color: $s-100;
+            font-weight: bold;
+        }
+    }
+
+    div {
+        @include ali;
+        padding: .8rem 1rem;
+        background-color: $s-100;
+        width: fit-content;
+        border-radius: $br;
+        font-size: x-large;
+        color: $p-50;
+        @include clickable;
+    }
+}
+
+.iframeContainer {
+    flex: 1;
+    position: relative;
+    @include center;
+
+    iframe {
+        position: absolute;
+    }
+}
+
+.highlights {
+
+    width: 100%;
+    height: 100%;
+
+    h1 {
+        color: $s-100;
+    }
+
+    &Grid {
+        width: 100%;
+        height: 80%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        row-gap: 3rem;
+        column-gap: 1rem;
+        margin-top: 3rem;
+
+        .container {
+            display: flex;
+
+            .imageContainer {
+                width: 10%;
+                min-width: 60px;
+            }
+
+            .des {
+                flex: 1;
+                padding: 0 1rem;
+                
+                .header {
+                    font-size: large;
+                    color: $p-150;
+                    letter-spacing: 1px;
+                }
+
+                .content {
+                    margin-top: .2rem;
+                    color: $p-200;
+                    font-size: x-large;
+                    letter-spacing: .5px;
+
+                    span {
+                        color: $s-100;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+.tools {
+
+    width: 100%;
+    height: 100%;
+
+    h1 {
+        color: $s-100;
+    }
+
+    .outerWrapper {
+        display: flex;
+        height: 100%;
+
+        .innerWrapper {
+            height: 70%;
+            width: 50%;
+
+            h2 {
+                color: $s-100;
+                font-size: xx-large;
+            }
+
+            .content {
+                height: 100%;
+                display: grid;
+                position: relative;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: repeat(3, 1fr);
+                
+                .item {
+                    display: flex;
+                    align-items: center;
+                    @include space-x(0.5rem);
+
+                    &:nth-child(even) {
+                        margin-left: 5%;
+                    }
+
+                    div {
+                        display: flex;
+                        flex-direction: column;
+
+                        .title {
+                            color: $p-200;
+                            font-size: large;
+                        }
+
+                        .subtitle {
+                            color: $p-150;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+}
+
+.skills {
+    width: 100%;
+    height: 100%;
+
+    h1 {
+        color: $s-100;
+    }
+
+    &Container {
+        height: 80%;
+        width: 100%;
+        display: flex;
+
+        .content {
+            font-size: xx-large;
+            letter-spacing: 0.5px;
+        }
+
+        & > * {
+            font-size: x-large;
+            letter-spacing: .5px;
+            color: $p-200;
+            width: 50%;
+            padding-right: 2rem;
+            @include center;
+        }
+    }
+
+}
+
+.offer {
+    width: 100%;
+    height: 100%;
+
+    h1 {
+        color: $s-100;
+    }
+
+    &Container {
+        width: 100%;
+        height: 80%;
+        display: flex;
+        margin-top: 2rem;
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .contentItem {
+                width: 100%;
+
+                div {
+                    color: $p-200;
+                    font-size: xx-large;
+                    letter-spacing: 0.5px;
+                }
+
+                span {
+                    font-size: large;
+                    color: $p-150;
+                }
+
+            }
+        }
+
+        & > * {
+            width: 50%;
+            height: 100%;
+            position: relative;
+            @include center;
+
+            .shadow {
+                position: absolute;
+                width: 300px;
+                height: 50px;
+                background-color: $p-150;
+                border-radius: 50%;
+                bottom: 5%;
+                left: 15%;
+            }
+        }
+    }
+}
+
+@include phoneScreen {
+    .greetings {
+        top: 0;
+
+        h1 {
+            font-size: 70px;
+        }
+
+    }
+
+    .strip {
+        top: 68.5%;
+        height: 650px;
+    }
+
+    .skills {
+        &Container {
+            flex-direction: column;
+
+            & > * {
+                width: 100%;
+                padding-right: 0;
+            }
+
+            .radialChart {
+                margin-top: 3rem;
+                transform: scale(0.8);
+            }
+        }
+    }
+
+    .offer {
+        &Container {
+            flex-direction: column;
+
+            .imageContainer {
+                transform: scale(0.8);
+
+                .shadow {
+
+                }
+            }
+
+            & > * {
+                width: 100%;
+
+                .contentItem {
+                    margin-top: 4rem !important;
+                }
+            }
+        }
+    }
+
+    .tools {
+        .outerWrapper {
+            flex-direction: column;
+
+            .innerWrapper {
+                width: 100%;
+
+                .content {
+                    height: 200px;
+                }
+
+                .title {
+                    font-size: medium !important;
+                }
+
+                .subtitle {
+                    font-size: small !important;
+                }
+
+                .item {
+                    &:nth-child(even) {
+                        margin-left: 20% !important;
+                    }
+                }
+            }
+        }
+    }
+
+    .highlights {
+        &Grid {
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(5, 1fr);
+        }
+    }
+
+    .iframeContainer {
+        min-height: 400px;
+    }
+
+    .mainContainer {
+        .mainWrapper {
+            flex-direction: column;
+        }
+
+        .mainWrapperSm {
+            height: fit-content !important;
+        }
+
+        .mainWrapperXs {
+            height: fit-content !important;
+        }
+    }
+}

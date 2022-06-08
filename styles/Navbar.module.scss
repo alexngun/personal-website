@@ -1,0 +1,132 @@
+@import './mixins';
+
+.navBarContainer {
+    width: 100vw;
+    height: $navheight;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    @include center;
+    background-color: $p-100;
+
+    .navBar {
+        height: 100%;
+        width: 100%;
+        max-width: $mxw;
+        display: flex;
+        justify-content: space-between;
+    }
+
+}
+
+$headTailWidth: 150px;
+
+.icon {
+    color: $p-200;
+    font-size: x-large;
+    letter-spacing: .5px;
+    position: relative;
+    width: $headTailWidth;
+    @extend .textPacifico;
+    @include ali;
+    @include space-x;
+    @include clickable;
+
+    &:hover {
+        img {
+            transform: rotate(20deg);
+        }
+    }
+}
+
+.hireMe {
+    width: $headTailWidth;
+    height: 100%;
+    @include center;
+
+    span {
+        background-color: $s-100;
+        padding: 0.5rem 1rem;
+        border-radius: $br;
+        color: white;
+        @include center;
+        @include clickable;
+    }
+
+}
+
+.navItems {
+    height: 100%;
+    color: $p-200;
+    font-weight: bold;
+    font-size: large;
+    @include ali;
+    @include space-x(1.5rem);
+
+    & > * {
+        @include center;
+        @include clickable;
+        height: 100%;
+    }
+}
+
+@mixin rotateStyle($r, $y, $x: none) {
+    @if $x != none {
+        transform: rotate($r) translateY($y) translateX($x);
+    }
+    @else {
+        transform: rotate($r) translateY($y);
+    }
+}
+
+.burgerMenu {
+    width: $navheight;
+    height: $navheight;
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 4px 0;
+    margin-right: .5rem; 
+    @include clickable;
+
+    i {
+        width: 60%;
+        height: 6px;
+        background-color: $p-200;
+        border-radius: $br;
+        transition: all ease-in-out .5s;
+    }
+
+    .openStyle1 {
+        @include rotateStyle(45deg, .55rem, 8px);
+    }
+    .openStyle2 {
+        opacity: 0;
+    }
+    .openStyle3 {
+        @include rotateStyle(-45deg, -.55rem, 8px);
+    }
+
+    .closeStyle2 {
+        opacity: 1;
+    }
+    .closeStyle1, .closeStyle3 {
+        @include rotateStyle(0, 0)
+    }
+}
+
+@include phoneScreen {
+
+    .icon {
+        padding-left: .5rem;
+    }
+
+    .burgerMenu {
+        display: flex;
+    }
+
+    .hireMe, .navItems {
+        display: none;
+    }
+}

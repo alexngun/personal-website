@@ -1,0 +1,33 @@
+@font-face {
+  font-family: Redwing;
+  src: url("/Redwing-Medium.otf")
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'redwing', sans-serif;
+  background-color: #FFDAAF;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-family:'Times New Roman', Times, serif;
+  color: rgb(158, 158, 158);
+}

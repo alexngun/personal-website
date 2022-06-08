@@ -1,0 +1,102 @@
+@import '_mixins.scss';
+
+@mixin dotStyles(
+    $dim, $i, $bg, $t: auto, $l: auto, $s,
+) {
+    &>div:nth-child(#{$i}) {
+        height: $dim;
+        width: $dim;
+        background-image: $bg;
+        position: absolute;
+        top: $t;
+        left: $l;
+        box-shadow: 0 0 3px $s;
+        border-radius: 50%;
+        animation: move#{$i} 1.5s infinite;
+    }
+}
+
+.spinnerContainer {
+    height: 150px;
+    width: 150px;
+    position: relative;
+    animation: spin 1.5s infinite;
+
+    @include dotStyles(
+        45px,
+        1, linear-gradient(45deg, #f3dd64, #f4b13e),
+        $l:20%, $t:25%, $s:#f3dd64
+    );
+    @include dotStyles(
+        28px,
+        2, linear-gradient(45deg, #46def5, #41c8ed),
+        $l:55%, $t:27%, $s:#46def5
+    );
+    @include dotStyles(
+        45px,
+        3, linear-gradient(45deg, #ec87bb, #ef487d),
+        $t:49%, $l:50%, $s:#ec87bb
+    );
+    @include dotStyles(
+        28px,
+        4, linear-gradient(45deg, #ec85f9, #c845f8),
+        $t:60%, $l:27%, $s:#ec85f9
+    );
+
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+$transforms:
+    translate(-10px, -10px),
+    translate(12px, -12px),
+    translate(15px, 15px),
+    translate(-12px, 15px);
+
+@each $t in $transforms {
+    $i: index($transforms, $t);
+    @keyframes move#{$i} {
+        50% {
+            transform: $t scale(0.6);
+        }
+    }
+}
+
+.pentagonContainer {
+
+    width: 300px;
+    height: 300px;
+    position: relative;
+    @include center;
+
+    .label {
+        z-index: 3;
+        position: absolute;
+        font-size: medium;
+        letter-spacing: 1px;
+        color: $p-200;
+    }
+
+    .pentagon {
+        position: absolute ;
+        width: 100%;
+        height: 100%;
+        background-color: $p-150;
+        clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+
+    }
+    .skills {
+        position: absolute ;
+        width: 100%;
+        height: 100%;
+        background-color: $s-100;
+        z-index: 2;
+        clip-path: polygon(51% 6%, 76% 44%, 80% 97%, 33% 81%, 12% 40%);
+
+    }
+}
+
