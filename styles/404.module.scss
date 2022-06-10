@@ -1,0 +1,34 @@
+@import '_mixins.scss';
+
+.mainContainer {
+    width: 100%;
+    position: relative;
+    top: $navheight;
+    @include center;
+    padding-bottom: 20rem;
+    min-height: 95vh;
+    background-color: $p-100 !important;
+
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h1 {
+        color: $s-100;
+    }
+
+    button {
+        outline: none;
+        border: none;
+        font-size: larger;
+        color: $p-50;
+        padding: .2rem 1rem;
+        border-radius: 5px;
+        background-color: $p-200;
+
+        @include clickable;
+    }
+}

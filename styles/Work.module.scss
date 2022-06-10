@@ -1,0 +1,218 @@
+@import "_mixins.scss";
+
+.mainContainer {
+    top: $navheight;
+    width: 100%;
+    height: fit-content;
+    min-height: 95vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 5rem;
+    background-color: $p-100 !important;
+
+    .mainWrapper {
+        width: 90%;
+        height: 300px;
+        max-width: $mxw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        span {
+            margin-top: 2rem;
+            font-size: x-large;
+            letter-spacing: .5px;
+            color: $p-200;
+
+            label {
+                color: $s-100;
+                text-decoration: underline;
+                @include clickable;
+            }
+
+            svg {
+                @extend label;
+            }
+        }
+
+        .avatar {
+            margin-right: 1rem;
+            width: 75px;
+            height: 75px;
+            position: relative;
+            @include center;
+            background-color: white;
+            border-radius: 50%;
+        }
+    }
+
+    .gridWrapper {
+        width: 100%;
+        max-width: $mxw;
+        height: 400px;
+        position: relative;
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+
+            .card {
+                width: 80%;
+                height: 100%;
+                margin: 0 auto;
+                @include clickable;
+                transition: transform ease-in-out .3s;
+                &:hover {
+                    transform: scale(105%);
+                }
+
+                .imageContainer {
+                    width: 100%;
+                    height: 70%;
+                    position: relative;
+                }
+
+
+                .title {
+                    font-size: xx-large;
+                    color: $s-100;
+                    text-align: center;
+                    padding: .1rem 0;
+                    width: 100%;
+                }
+
+                .brief {
+                    padding-top: 1rem;
+                    text-align: center;
+                    color: $s-100;
+                    letter-spacing: .5px;
+                }
+            }
+        }
+    }
+
+    .detailWrapper {
+        width: 90%;
+        height: fit-content;
+        max-width: 600px;
+        margin-top: 5rem;
+
+        .header {
+            color: $p-150;
+            display: flex;
+            justify-content: space-between;
+
+            .back {
+                font-size: large;
+                @include clickable;
+            }
+
+            .link {
+                text-decoration: underline;
+                color: #444;
+                @include clickable;
+                svg {
+                    font-size: x-large;
+                    margin-right: 4px; 
+                }
+            }
+
+            & > * {
+                @include ali;
+            }
+
+            span {
+                font-size: x-large;
+                color: $s-100;
+                margin-left: .2rem;
+            }
+
+            label {
+                margin-left: .2rem;
+                background-color: rgb(244, 121, 6);
+                padding: .2rem 1rem;
+                color: white;
+                border-radius: $br;
+            }
+        }
+
+        .des {
+            width: 100%;
+            margin-top: 4rem;
+            color: $p-200;
+            letter-spacing: .5px;
+            font-size: xx-large;
+        }
+
+        .tags {
+            @include ali;
+            margin-bottom: 1rem;
+
+            a {
+                margin-left: 10px;
+                color: $s-100;
+                text-decoration: underline;
+                letter-spacing: .5px;
+                @include ali;
+
+                svg {
+                    font-size: larger;
+                    margin-left: 5px;
+                }
+            }
+
+            label {
+                padding: 0 5px;
+                width: fit-content;
+                background-color: rgb(189, 117, 241);
+                color: $p-50;
+            }
+
+            span {
+                margin-left: 10px;
+                color: $p-200;
+                letter-spacing: .5px;
+            }
+        }
+
+        .imagesWrapper {
+            width: 100%;
+            height: fit-content;
+            margin-top: 3rem;
+            @include space-y;
+
+            .imageContainer {
+                width: 100%;
+                height: 500px;
+                position: relative;
+            }
+        }
+
+        .imagesWrapperGrid {
+            @extend .imagesWrapper;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            row-gap: 1rem;
+        }
+
+    }
+}
+
+@include phoneScreen {
+
+    
+
+    .detailWrapper {
+        .header {
+            flex-direction: column;
+            .link {
+                margin-top: 1rem;
+            }
+        }
+
+        .imagesWrapperGrid {
+            grid-template-columns: 1fr !important;
+        }
+    }
+}

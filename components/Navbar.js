@@ -2,6 +2,7 @@ import styles from '../styles/Navbar.module.scss'
 import Image from 'next/image'
 
 import { useState } from 'react'
+import { useRouter } from 'next/router';
 
 function BurgerMenuIcon() {
 
@@ -17,11 +18,14 @@ function BurgerMenuIcon() {
 }
 
 function Navbar() {
-  return (
+
+    const { push } = useRouter()
+
+    return (
     <nav className={styles.navBarContainer}>
         <div className={styles.navBar}>
 
-            <div className={styles.icon}>
+            <div className={styles.icon} onClick={()=>push("/")}>
                 <Image 
                     width={30} height={30}
                     src="/icon.svg" 
@@ -30,20 +34,13 @@ function Navbar() {
                 <span>AlexNgun</span>
             </div>
 
-            <div className={styles.navItems}>
-                <span>{"<About/>"}</span>
-                <span>{"<Work/>"}</span>
-            </div>
-
-            <div className={styles.hireMe}>
+            <div className={styles.hireMe} onClick={()=>push("/contact")}>
                 <span>Hire Me</span>
             </div>
 
-            <BurgerMenuIcon/>
-
         </div>
     </nav>
-  )
+    )
 }
 
 export default Navbar

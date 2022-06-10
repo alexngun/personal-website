@@ -9,15 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "antd": "^4.21.0",
+    "axios": "^0.27.2",
+    "body-parser": "^1.20.0",
     "chart.js": "^3.8.0",
+    "dotenv": "^16.0.1",
     "framer-motion": "^6.3.10",
     "next": "12.1.6",
+    "nodemailer": "^6.7.5",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-icons": "^4.4.0",
     "react-router-dom": "^6.3.0",
     "react-scroll-motion": "^0.3.0",
-    "sass": "^1.52.2"
+    "sass": "^1.52.2",
+    "swiper": "^8.2.2"
   },
   "devDependencies": {
     "eslint": "8.17.0",

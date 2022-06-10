@@ -7,7 +7,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'redwing', sans-serif;
+  font-family: 'redwing', sans-serif !important;
   background-color: #FFDAAF;
 }
 
@@ -25,9 +25,16 @@ a {
 }
 
 footer {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  font-family:'Times New Roman', Times, serif;
-  color: rgb(158, 158, 158);
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  font-family:'Times New Roman', Times, serif !important;
+  color: rgb(158, 158, 158) !important;
+  height: 50px !important;
+}
+
+main {
+  height: fit-content;
+  min-height: 100vh;
+  background-color: #FFDAAF;
 }

@@ -6,6 +6,7 @@
     top: $navheight;
     @include center;
     padding-bottom: 20rem;
+    background-color: $p-100 !important;
 
     & > * + * {
         margin-top: 8rem;
@@ -38,7 +39,6 @@
 
 .greetings {
     flex: 1;
-    color: $p-200;
     position: relative;
     top: 20%;
     height: 80%;
@@ -47,12 +47,14 @@
         font-size: 100px;
         color: $s-100;
         letter-spacing: .5px;
+        margin: 2rem 0 !important;
     }
 
     h2 {
         letter-spacing: 1px;
         line-height: 38px;
         font-size: xx-large;
+        color: $p-200 !important;
 
         span {
             color: $s-100;

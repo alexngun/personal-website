@@ -6,25 +6,41 @@ import OnScreenShow from '../components/widgets/OnScreenShow'
 import Image from 'next/image'
 import RadarChart from '../components/widgets/RadarChart'
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md'
+import { useRouter } from 'next/router'
+import { motion } from 'framer-motion'
+
+const variants = {
+  hidden: { opacity: 0, x: 0, y: 20 },
+  enter: { opacity: 1, x: 0, y: 0 },
+  exit: { opacity: 0, x: -0, y: 20 }
+}
 
 export default function Home() {
 
   const [loading, setLoading] = useState(true);
-  const myTimeout = setTimeout(()=>setLoading(false), 1500)
+  const myTimeout = setTimeout(()=>setLoading(false), 500)
+  const { push } = useRouter()
 
   useEffect(() => {
     clearTimeout(myTimeout)
   }, [myTimeout])
   
   return (
-    <div className={styles.mainContainer}>
+    <motion.div  
+      initial="hidden"
+      animate="enter"
+      exit="exit"
+      variants={variants}
+      transition={{ duration: 0.4, type: 'easeInOut' }}
+      className={styles.mainContainer}
+    >
       <div className={styles.mainWrapper}>
         <div className={styles.greetings}>
           <h1>WELCOME</h1>
           <h2>
             I'm a fullstack developer with a passion in building <span>creative</span> and <span>innovative</span> applications.
           </h2>
-          <div>My Portfolio <MdOutlineKeyboardArrowRight/> </div>
+          <div onClick={()=>push("/work")}>My Portfolio <MdOutlineKeyboardArrowRight/> </div>
         </div>
         <div className={styles.iframeContainer}>
           <iframe src='https://my.spline.design/miniroom-f2dc142b58d74e50df3d4fd9a342ad76/' frameBorder='0' width='100%' height='100%'></iframe>
@@ -249,6 +265,6 @@ export default function Home() {
           </div>
         </div>
       </OnScreenShow>
-    </div>
+    </motion.div>
   )
 }

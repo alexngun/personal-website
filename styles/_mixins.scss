@@ -45,6 +45,12 @@ $text-styles: 'Monoton', 'Pacifico', 'Redwing';
     }
 }
 
+@mixin space-y($space:.5rem) {
+    & > * + * {
+        margin-top: $space;
+    }
+}
+
 @mixin shadow {
     box-shadow: 1px 1px 5px 2px rgb(197, 195, 195);
 }
