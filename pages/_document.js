@@ -6,6 +6,7 @@ export default function Document() {
         <Head>
             <meta name="description" content="Alex's homepage" />
             <meta name="author" content="Alex Ngun" />
+            <meta name="theme-color" content="#FFDAAF"/>
             <link rel="icon" href="/icons/boy.png" />
             <link rel="preconnect" href="https://fonts.googleapis.com"/>
             <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true"/>
