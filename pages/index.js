@@ -17,13 +17,7 @@ const variants = {
 
 export default function Home() {
 
-  const [loading, setLoading] = useState(true);
-  const myTimeout = setTimeout(()=>setLoading(false), 500)
   const { push } = useRouter()
-
-  useEffect(() => {
-    clearTimeout(myTimeout)
-  }, [myTimeout])
   
   return (
     <motion.div  
@@ -44,7 +38,6 @@ export default function Home() {
         </div>
         <div className={styles.iframeContainer}>
           <iframe src='https://my.spline.design/miniroom-f2dc142b58d74e50df3d4fd9a342ad76/' frameBorder='0' width='100%' height='100%'></iframe>
-          {loading && <Spinner/>}
         </div>
       </div>
       <OnScreenShow className={styles.mainWrapperSm}>
