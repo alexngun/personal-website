@@ -48,7 +48,7 @@ function contact() {
     const handleSubmit = async (e) => {
         setLoading(true)
         e.preventDefault()
-        const res = await axios.post("http://localhost:3000/api/email", text)
+        const res = await axios.post("https://www.alexngun.com/api/email", text)
         if(res.status==200) {
             message.success('Email sent successfully!', 5);
         }
